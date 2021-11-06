@@ -1,17 +1,20 @@
-import './App.css';
-import Form from './Components/Form';
-import React,{useState} from 'react';
-import { getWeatherData } from './data/weatherapi'
+import "./App.css";
+import "./index.css";
+import Form from "./Components/Form";
+import React, { useState } from "react";
+import { getWeatherData } from "./data/weatherapi";
 
 function App() {
-  const[weatherData,setWeatherData]=useState(null);
+  const [weatherData, setWeatherData] = useState(null);
 
   return (
     <>
-    <div className="App">
-       <h1>Weather app</h1>
-       <Form/>
-    </div>
+      <div className="app warm">
+        <h1>Weather app</h1>
+        <main>
+          <Form />
+        </main>
+      </div>
     </>
   );
 }
