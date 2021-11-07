@@ -9,8 +9,7 @@ function App() {
 
   return (
     <>
-      <div className="app warm">
-        <h1>Weather app</h1>
+      <div className="app">
         <main>
           <Form />
         </main>
