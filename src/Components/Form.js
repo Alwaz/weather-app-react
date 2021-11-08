@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Location from "./Location";
-import { getWeatherData } from "../data/weatherapi";
 import "../index.css";
 import axios from "axios";
 
@@ -9,7 +8,9 @@ const Form = () => {
   const [weatherData, setWeatherData] = useState(null);
 
   const API_KEY = `108dd9a67c96f23039937fe6f3c91963`;
-  const URL = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&units=metric&appid=${API_KEY}`;
+  const BASE_URL = `https://api.openweathermap.org/data/2.5/weather?`;
+
+  const URL = `${BASE_URL}q=${inputValue}&units=metric&appid=${API_KEY}`;
 
   const getValue = (e) => {
     setInputValue(e.target.value);
@@ -40,13 +41,17 @@ const Form = () => {
         </button>
       </div>
 
-      <Location
-        city={weatherData.name}
-        country={weatherData.sys.country}
-        temp={weatherData.main.temp}
-        icon={weatherData.weather[0].icon}
-        weather={weatherData.weather[0].description}
-      />
+      {!inputValue ? (
+        ""
+      ) : (
+        <Location
+          city={weatherData.name}
+          country={weatherData.sys.country}
+          temp={weatherData.main.temp}
+          icon={weatherData.weather[0].icon}
+          weather={weatherData.weather[0].description}
+        />
+      )}
     </>
   );
 };
