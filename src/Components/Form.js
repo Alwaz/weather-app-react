@@ -2,24 +2,23 @@ import React, { useState, useEffect } from "react";
 import Location from "./Location";
 import { getWeatherData } from "../data/weatherapi";
 import "../index.css";
+import axios from "axios";
 
 const Form = () => {
-  const [inputValue, setInputValue] = useState("Karachi");
+  const [inputValue, setInputValue] = useState("");
   const [weatherData, setWeatherData] = useState(null);
+
+  const API_KEY = `108dd9a67c96f23039937fe6f3c91963`;
+  const URL = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&units=metric&appid=${API_KEY}`;
 
   const getValue = (e) => {
     setInputValue(e.target.value);
   };
 
-  // function to get Data
+  // function to get data
   const getData = async () => {
-    try {
-      const data = await getWeatherData(inputValue);
-      console.log(data);
-      setWeatherData(data);
-    } catch (err) {
-      console.log(err);
-    }
+    const { data } = await axios.get(URL);
+    setWeatherData(data);
   };
 
   useEffect(() => {

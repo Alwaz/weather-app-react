@@ -1,12 +1,9 @@
 import "./App.css";
 import "./index.css";
 import Form from "./Components/Form";
-import React, { useState } from "react";
-import { getWeatherData } from "./data/weatherapi";
+import React from "react";
 
 function App() {
-  const [weatherData, setWeatherData] = useState(null);
-
   return (
     <>
       <div className="app">
