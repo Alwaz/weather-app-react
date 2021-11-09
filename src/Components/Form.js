@@ -8,8 +8,6 @@ const Form = () => {
   const [weatherData, setWeatherData] = useState(null);
   const location = useRef();
 
-  // https://api.openweathermap.org/data/2.5/weather?q=&units=metric&appid=108dd9a67c96f23039937fe6f3c91963
-
   const API_KEY = `108dd9a67c96f23039937fe6f3c91963`;
   const BASE_URL = `https://api.openweathermap.org/data/2.5/weather?`;
 
@@ -23,13 +21,7 @@ const Form = () => {
     }
   };
 
-  // data will be fetched on page load
-  // useEffect(() => {
-  //   getData();
-  // }, []);
-
   useEffect(() => {
-    console.log(inputValue);
     getData();
   }, [inputValue]);
 
